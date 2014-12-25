@@ -30,6 +30,13 @@ $(function() {
                $('<input/>', {
                  type : 'checkbox' 
                , id: device+'_'+info.outlet
+               , on: {
+                 click: function( event ) {
+                   $.ajax({
+                     url: '/switch/'+$(this).attr('id'),
+                   });
+                 }
+               }
                }),
                $('<label>Switch'+info.outlet+'</label>', {
                   for : device+'_'+info.outlet
